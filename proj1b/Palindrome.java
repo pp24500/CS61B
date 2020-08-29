@@ -9,7 +9,7 @@ public class Palindrome {
      * @return deque of the string
      */
     public Deque<Character> wordToDeque(String word) {
-        Deque<Character> queWord = new ArrayDeque<>();
+        ArrayDeque<Character> queWord = new ArrayDeque<>();
         for (int i = 0; i < word.length(); i++) {
             queWord.addLast(word.charAt(i));
         }
