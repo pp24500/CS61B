@@ -42,6 +42,10 @@ public class PercolationStats {
      * @return the fraction of open sites for percolating
      */
     private int calculateThreshold(Percolation p, int N) {
+        if (N <= 0) {
+            throw new java.lang.IllegalArgumentException(
+                    "N and T should be both positive!");
+        }
         while (!p.percolates()) {
             p.open(StdRandom.uniform(N), StdRandom.uniform(N));
         }
