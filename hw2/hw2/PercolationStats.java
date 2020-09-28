@@ -75,17 +75,4 @@ public class PercolationStats {
     public double confidenceHigh() {
         return mean() + CONFIDENCE * stddev() / Math.sqrt(fraction.length);
     }
-
-    /**
-     * Calculate the threshold values for testing.
-     * @param args input strings
-     */
-    public static void main(String[] args) {
-        PercolationStats test = new PercolationStats(THICKNESS, EXPERIMENTS,
-                new PercolationFactory());
-        System.out.println("The mean fraction is: " + test.mean());
-        System.out.println("The standard deviation is: " + test.stddev());
-        System.out.println("The mean faction is between: "
-                + test.confidenceLow() + " and " + test.confidenceHigh());
-    }
 }
