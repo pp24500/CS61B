@@ -85,7 +85,7 @@ public class Board implements WorldState {
         int differs = 0;
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
-                if (board[i][j] != goal[i][j]) {
+                if (board[i][j] != goal[i][j] && board[i][j] != BLANK) {
                     differs++;
                 }
             }
@@ -105,8 +105,6 @@ public class Board implements WorldState {
                     jCorrect = m % N;
                     distance = distance + Math.abs(i - iCorrect)
                             + Math.abs(j - jCorrect);
-                } else {
-                    distance = distance + 2 * N - 2 - i - j;
                 }
             }
         }
@@ -126,6 +124,9 @@ public class Board implements WorldState {
      * @param y
      */
     public boolean equals(Object y) {
+        if (y == null) {
+            return  false;
+        }
         if (getClass() != y.getClass()) {
             return false;
         }
@@ -156,6 +157,10 @@ public class Board implements WorldState {
         }
         s.append("\n");
         return s.toString();
+    }
+
+    public int hashCode() {
+        return toString().hashCode();
     }
 
 }

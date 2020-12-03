@@ -4,7 +4,7 @@ import edu.princeton.cs.algs4.MinPQ;
 import edu.princeton.cs.algs4.Stack;
 import java.util.HashMap;
 
-public final class Solver {
+public class Solver {
 
     private MinPQ<SearchNode> pq = new MinPQ<>();
     private Stack<WorldState> path = new Stack<>();
@@ -100,10 +100,10 @@ public final class Solver {
     /**
      * Return the time consuming during the solving process.
      */
-    public int time() {
+    /*public int time() {
         return timeConsuming;
     }
-
+*/
     /**
      * Returns the minimum number of moves to solve the puzzle starting
      * at the initial WorldState.
