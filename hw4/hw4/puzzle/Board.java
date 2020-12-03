@@ -2,10 +2,16 @@ package hw4.puzzle;
 
 import edu.princeton.cs.algs4.Queue;
 
+/**
+ * Class represents a puzzle board.
+ * @author Ziyu
+ */
 public class Board implements WorldState {
-
+    /** 2-D array of the present board and the solution board. */
     private int[][] board, goal;
+    /** Size of the board. */
     private int N;
+    /** The constant of blank cite. */
     private static final int BLANK = 0;
 
     /**
@@ -30,8 +36,8 @@ public class Board implements WorldState {
 
     /**
      * Returns value of tile at row i, column j (or 0 if blank).
-     * @param i
-     * @param j
+     * @param i transversal index
+     * @param j longitudinal index
      */
     public int tileAt(int i, int j) {
         return board[i][j];
@@ -121,7 +127,7 @@ public class Board implements WorldState {
 
     /**
      * Returns true if this board's tile values are the same position as y's.
-     * @param y
+     * @param y the board to be compared
      */
     public boolean equals(Object y) {
         if (y == null) {
@@ -145,13 +151,16 @@ public class Board implements WorldState {
         return true;
     }
 
+    /**
+     * Return the string representation of the board.
+     */
     public String toString() {
         StringBuilder s = new StringBuilder();
         int N = size();
         s.append(N + "\n");
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
-                s.append(String.format("%2d ", tileAt(i,j)));
+                s.append(String.format("%2d ", tileAt(i, j)));
             }
             s.append("\n");
         }
@@ -159,6 +168,9 @@ public class Board implements WorldState {
         return s.toString();
     }
 
+    /**
+     * Return the hashcode of the board.
+     */
     public int hashCode() {
         return toString().hashCode();
     }
